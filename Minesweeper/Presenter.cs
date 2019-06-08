@@ -24,6 +24,37 @@ namespace Minesweeper
         {
             this.engine = engine;
             this.view = view;
+            view.RequestStartNewGame += HandleStartNewGame;
+            view.RequestOpenField += HandleOpenField;
+            view.RequestMarkOrUnmarkField += HandleMarkOrUnmarkField;
+        }
+
+        /// <summary>
+        /// Metoda obsługująca event rozpoczęcia nowej gry.
+        /// </summary>
+        private void HandleStartNewGame()
+        {
+
+        }
+
+        /// <summary>
+        /// Metoda obsługująca event otwarcia pola.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma otwieranego pola</param>
+        /// <param name="y">Współrzędna pionowa otwieranego pola</param>
+        private void HandleOpenField(int x, int y)
+        {
+
+        }
+
+        /// <summary>
+        /// Metoda obsługująca event zaznaczenia / odznaczenia pola.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma zaznaczanego / odznaczanego pola</param>
+        /// <param name="y">Współrzędna pionowa zaznaczanego / odznaczanego pola</param>
+        private void HandleMarkOrUnmarkField(int x, int y)
+        {
+
         }
     }
 }
