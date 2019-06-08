@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Minesweeper
+namespace Minesweeper.view
 {
-    public partial class Form1 : Form
+    /// <summary>
+    /// Główny formularz widoku.
+    /// </summary>
+    internal partial class MainForm : Form, IView
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }

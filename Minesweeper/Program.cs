@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Minesweeper.view;
+using Minesweeper.model;
 
 namespace Minesweeper
 {
@@ -16,7 +18,12 @@ namespace Minesweeper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            IView view = new MainForm();
+            GameEngine engine = new GameEngine();
+            Presenter presenter = new Presenter(engine, view);
+
+            Application.Run((Form)view);
         }
     }
 }
