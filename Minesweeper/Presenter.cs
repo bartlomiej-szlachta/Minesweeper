@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Minesweeper.model;
+using Minesweeper.dto;
 
 namespace Minesweeper
 {
@@ -32,7 +33,8 @@ namespace Minesweeper
         /// <summary>
         /// Metoda obsługująca event rozpoczęcia nowej gry.
         /// </summary>
-        private void HandleStartNewGame()
+        /// <param name="mode">Tryb nowej gry</param>
+        private void HandleStartNewGame(GameMode mode)
         {
 
         }

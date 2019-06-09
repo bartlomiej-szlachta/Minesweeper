@@ -21,7 +21,7 @@ namespace Minesweeper.view
             InitializeComponent();
         }
 
-        public event Action RequestStartNewGame;
+        public event Action<GameMode> RequestStartNewGame;
         public event Action<int, int> RequestOpenField;
         public event Action<int, int> RequestMarkOrUnmarkField;
 
