@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Minesweeper.view
 {
-    public partial class NumberControl : UserControl
+    public partial class InfoControl : UserControl
     {
-        public NumberControl()
+        public InfoControl()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Minesweeper.view
 {
-    partial class NumberControl
+    partial class InfoControl
     {
         /// <summary> 
         /// Required designer variable.

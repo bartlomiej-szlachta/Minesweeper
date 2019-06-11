@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numberControl2 = new Minesweeper.view.NumberControl();
-            this.numberControl1 = new Minesweeper.view.NumberControl();
+            this.infoControl2 = new Minesweeper.view.InfoControl();
+            this.infoControl1 = new Minesweeper.view.InfoControl();
             this.SuspendLayout();
             // 
             // panel1
@@ -46,26 +46,26 @@
             // 
             // numberControl2
             // 
-            this.numberControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberControl2.Location = new System.Drawing.Point(602, 424);
-            this.numberControl2.Name = "numberControl2";
-            this.numberControl2.Size = new System.Drawing.Size(186, 31);
-            this.numberControl2.TabIndex = 6;
+            this.infoControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoControl2.Location = new System.Drawing.Point(602, 424);
+            this.infoControl2.Name = "numberControl2";
+            this.infoControl2.Size = new System.Drawing.Size(186, 31);
+            this.infoControl2.TabIndex = 6;
             // 
             // numberControl1
             // 
-            this.numberControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numberControl1.Location = new System.Drawing.Point(12, 424);
-            this.numberControl1.Name = "numberControl1";
-            this.numberControl1.Size = new System.Drawing.Size(186, 31);
-            this.numberControl1.TabIndex = 5;
+            this.infoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.infoControl1.Location = new System.Drawing.Point(12, 424);
+            this.infoControl1.Name = "numberControl1";
+            this.infoControl1.Size = new System.Drawing.Size(186, 31);
+            this.infoControl1.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(800, 461);
-            this.Controls.Add(this.numberControl2);
-            this.Controls.Add(this.numberControl1);
+            this.Controls.Add(this.infoControl2);
+            this.Controls.Add(this.infoControl1);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "MainForm";
@@ -78,8 +78,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private NumberControl numberControl1;
-        private NumberControl numberControl2;
+        private InfoControl infoControl1;
+        private InfoControl infoControl2;
     }
 }
 
