@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.model
 {
+    /// <summary>
+    /// Struktura reprezentująca pojedyncze pole na planszy.
+    /// </summary>
     internal class Field
     {
         internal int Value { get; set; }

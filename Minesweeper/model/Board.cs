@@ -7,6 +7,9 @@ using Minesweeper.dto;
 
 namespace Minesweeper.model
 {
+    /// <summary>
+    /// Klasa reprezentująca planszę do gry.
+    /// </summary>
     internal class Board
     {
         private Field[][] fields;
@@ -19,6 +22,12 @@ namespace Minesweeper.model
         internal int Height { get; set; }
         internal int NumberOfBombs { get; set; }
 
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
+        /// <param name="width">Szerokość planszy</param>
+        /// <param name="height">Wysokość planszy</param>
+        /// <param name="numberOfBombs">Ilość bomb na planszy</param>
         internal Board(int width, int height, int numberOfBombs)
         {
             IsStarted = false;
@@ -95,6 +104,7 @@ namespace Minesweeper.model
                     }
                 }
             }
+
             IsStarted = true;
         }
         
