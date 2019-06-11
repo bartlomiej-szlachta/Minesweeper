@@ -107,6 +107,89 @@ namespace Minesweeper.model
 
             IsStarted = true;
         }
-        
-    }
+
+        /// <summary>
+        /// Metoda otwierająca wybrane pole planszy.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma otwieranego pola</param>
+        /// <param name="y">Współrzędna pionowa otwieranego pola</param>
+        internal void OpenField(int x, int y)
+        {
+            if (!IsStarted)
+            {
+                Fill(x, y);
+            }
+
+            if (fields[y][x].IsOpened)
+            {
+                throw new Exception("The field is already opened.");
+            }
+
+            fields[y][x].IsOpened = true;
+
+            if (fields[y][x].IsABomb)
+            {
+                IsFinished = true;
+                IsResultPositive = false;
+            }
+            else
+            {
+                if (fields[y][x].Value == 0)
+                {
+                    OpenBlankAreas();
+                }
+
+                bool victory = true;
+                for (int yi = 1; yi <= Height; yi++)
+                {
+                    for (int xi = 1; xi <= Width; xi++)
+                    {
+                        if (!fields[yi][xi].IsOpened && !fields[yi][xi].IsABomb)
+                        {
+                            victory = false;
+                            break;
+                        }
+                    }
+                }
+                if (victory)
+                {
+                    IsFinished = true;
+                    IsResultPositive = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Pomocnicza metoda odsłaniająca puste fragmenty planszy.
+        /// </summary>
+        private void OpenBlankAreas()
+        {
+            int zerosNow = 0;
+            int zerosBefore = 0;
+            do
+            {
+                zerosBefore = zerosNow;
+                zerosNow = 0;
+                for (int y = 1; y <= Height; y++)
+                {
+                    for (int x = 1; x <= Width; x++)
+                    {
+                        if (fields[y][x].IsOpened && fields[y][x].Value == 0)
+                        {
+                            fields[y - 1][x - 1].IsOpened = true;
+                            fields[y - 1][x].IsOpened = true;
+                            fields[y - 1][x + 1].IsOpened = true;
+                            fields[y][x - 1].IsOpened = true;
+                            fields[y][x + 1].IsOpened = true;
+                            fields[y + 1][x - 1].IsOpened = true;
+                            fields[y + 1][x].IsOpened = true;
+                            fields[y + 1][x + 1].IsOpened = true;
+
+                            zerosNow++;
+                        }
+                    }
+                }
+            } while (zerosNow != zerosBefore);
+        }
+    }    
 }

@@ -86,11 +86,7 @@ namespace Minesweeper.model
         /// <param name="y">Współrzędna pionowa pola</param>
         internal void OpenField(int x, int y)
         {
-            if (!board.IsStarted)
-            {
-                board.Fill(x, y);
-            }
-            throw new NotImplementedException();
+            board.OpenField(x, y);
         }
 
         /// <summary>
