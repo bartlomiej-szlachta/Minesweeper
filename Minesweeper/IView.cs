@@ -28,10 +28,11 @@ namespace Minesweeper
         event Action<int, int> RequestMarkOrUnmarkField;
 
         /// <summary>
-        /// Metoda ustawiająca wszystkie pola planszy jednocześnie.
+        /// Metoda tworząca planszę.
         /// </summary>
-        /// <param name="fields">Informacje o polach planszy</param>
-        void LoadGame(FieldResponse[][] fields);
+        /// <param name="width">Szerokość planszy</param>
+        /// <param name="height">Wysokość planszy</param>
+        void Initialize(int width, int height);
 
         /// <summary>
         /// Metoda otwierająca wybrane pole.

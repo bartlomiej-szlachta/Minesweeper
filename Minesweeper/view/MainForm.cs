@@ -25,12 +25,7 @@ namespace Minesweeper.view
         public event Action<int, int> RequestOpenField;
         public event Action<int, int> RequestMarkOrUnmarkField;
 
-        public void LoadGame(FieldResponse[][] fields)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetBoard(FieldResponse[][] fields)
+        public void Initialize(int width, int height)
         {
             throw new NotImplementedException();
         }

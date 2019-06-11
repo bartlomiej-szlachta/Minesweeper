@@ -36,7 +36,15 @@ namespace Minesweeper
         /// <param name="mode">Tryb nowej gry</param>
         private void HandleStartNewGame(GameModeEnum mode)
         {
-
+            try
+            {
+                engine.StartNewGame(mode);
+                view.Initialize(engine.Width, engine.Height);
+            }
+            catch (Exception ex)
+            {
+                view.SetGameError(ex.Message);
+            }
         }
 
         /// <summary>
@@ -46,7 +54,30 @@ namespace Minesweeper
         /// <param name="y">Współrzędna pionowa otwieranego pola</param>
         private void HandleOpenField(int x, int y)
         {
-
+            try
+            {
+                engine.OpenField(x, y);
+                if (engine.IsGameFinished)
+                {
+                    for (int i = 0; i < engine.Height; i++)
+                    {
+                        for (int j = 0; j < engine.Width; j++)
+                        {
+                            view.SetOpened(j, i, engine.GetValue(j, i));
+                            view.SetMarked(j, i, engine.GetMarked(j, i));
+                        }
+                    }
+                    view.SetGameResult(engine.IsResultPositive);
+                }
+                else
+                {
+                    view.SetOpened(x, y, engine.GetValue(x, y));
+                }
+            }
+            catch (Exception ex)
+            {
+                view.SetGameError(ex.Message);
+            }
         }
 
         /// <summary>
@@ -56,7 +87,15 @@ namespace Minesweeper
         /// <param name="y">Współrzędna pionowa zaznaczanego / odznaczanego pola</param>
         private void HandleMarkOrUnmarkField(int x, int y)
         {
-
+            try
+            {
+                engine.MarkField(x, y);
+                view.SetMarked(x, y, engine.GetMarked(x, y));
+            }
+            catch(Exception ex)
+            {
+                view.SetGameError(ex.Message);
+            }
         }
     }
 }
