@@ -12,15 +12,53 @@ namespace Minesweeper.model
     /// </summary>
     internal class Board
     {
+        #region Private fields
+
+        /// <summary>
+        /// Tabela pól planszy.
+        /// </summary>
         private Field[][] fields;
 
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Tryb gry.
+        /// </summary>
         internal GameModeEnum Mode { get; set; }
+
+        /// <summary>
+        /// Informacja o tym, czy gra jest rozpoczęta (czy pozycje bomb są wylosowane).
+        /// </summary>
         internal bool IsStarted { get; set; }
+
+        /// <summary>
+        /// Informacja o tym, czy gra jest już zakończona.
+        /// </summary>
         internal bool IsFinished { get; set; }
+
+        /// <summary>
+        /// Informacja o tym, czy wynik gry jest pozytywny. Dotyczy tylko zakończonej gry.
+        /// </summary>
         internal bool IsResultPositive { get; set; }
+
+        /// <summary>
+        /// Szerokość planszy.
+        /// </summary>
         internal int Width { get; set; }
+
+        /// <summary>
+        /// Wysokość planszy.
+        /// </summary>
         internal int Height { get; set; }
+
+        /// <summary>
+        /// Ilość bomb na planszy.
+        /// </summary>
         internal int NumberOfBombs { get; set; }
+
+        #endregion
 
         /// <summary>
         /// Konstruktor.
