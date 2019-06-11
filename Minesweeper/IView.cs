@@ -43,6 +43,12 @@ namespace Minesweeper
         void SetOpened(int x, int y, int value);
 
         /// <summary>
+        /// Metoda aktualizująca licznik pozostałych bomb do znalezienia.
+        /// </summary>
+        /// <param name="number">Liczba bomb</param>
+        void SetBombsRemaining(int number);
+
+        /// <summary>
         /// Metoda zaznaczająca / odznaczająca pole planszy.
         /// </summary>
         /// <param name="marked"></param>

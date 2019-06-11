@@ -37,6 +37,11 @@ namespace Minesweeper.model
         /// Wysokość planszy.
         /// </summary>
         internal int Height { get { throw new NotImplementedException(); } }
+
+        /// <summary>
+        /// Liczba bomb pozostałych do końca gry.
+        /// </summary>
+        internal int BombsRemaining { get { throw new NotImplementedException(); } }
         #endregion
 
         #region Methods

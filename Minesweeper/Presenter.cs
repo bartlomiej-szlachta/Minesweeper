@@ -67,11 +67,13 @@ namespace Minesweeper
                             view.SetMarked(j, i, engine.GetMarked(j, i));
                         }
                     }
+                    view.SetBombsRemaining(0);
                     view.SetGameResult(engine.IsResultPositive);
                 }
                 else
                 {
                     view.SetOpened(x, y, engine.GetValue(x, y));
+                    view.SetBombsRemaining(engine.BombsRemaining);
                 }
             }
             catch (Exception ex)

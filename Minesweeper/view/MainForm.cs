@@ -30,6 +30,11 @@ namespace Minesweeper.view
             throw new NotImplementedException();
         }
 
+        public void SetBombsRemaining(int number)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SetGameError(string message)
         {
             throw new NotImplementedException();
