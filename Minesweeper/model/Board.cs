@@ -17,7 +17,7 @@ namespace Minesweeper.model
         /// <summary>
         /// Tabela pól planszy.
         /// </summary>
-        private Field[][] fields;
+        private readonly Field[][] fields;
 
         #endregion
 
