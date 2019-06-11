@@ -21,7 +21,7 @@ namespace Minesweeper.view
             InitializeComponent();
         }
 
-        public event Action<GameMode> RequestStartNewGame;
+        public event Action<GameModeEnum> RequestStartNewGame;
         public event Action<int, int> RequestOpenField;
         public event Action<int, int> RequestMarkOrUnmarkField;
 
@@ -30,7 +30,7 @@ namespace Minesweeper.view
             throw new NotImplementedException();
         }
 
-        public void SetField(FieldResponse field)
+        public void SetBoard(FieldResponse[][] fields)
         {
             throw new NotImplementedException();
         }
@@ -41,6 +41,16 @@ namespace Minesweeper.view
         }
 
         public void SetGameResult(bool success)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetMarked(int x, int y, bool marked)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetOpened(int x, int y, int value)
         {
             throw new NotImplementedException();
         }

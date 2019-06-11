@@ -15,7 +15,7 @@ namespace Minesweeper
         /// <summary>
         /// Event reprezentujący żądanie rozpoczęcia nowej gry.
         /// </summary>
-        event Action<GameMode> RequestStartNewGame;
+        event Action<GameModeEnum> RequestStartNewGame;
 
         /// <summary>
         /// Event reprezentujący żądanie otwarcia pola.
@@ -28,10 +28,26 @@ namespace Minesweeper
         event Action<int, int> RequestMarkOrUnmarkField;
 
         /// <summary>
-        /// Metoda aktualizująca jedno pole planszy.
+        /// Metoda ustawiająca wszystkie pola planszy jednocześnie.
         /// </summary>
-        /// <param name="field">Informacje o aktualizowanym polu</param>
-        void SetField(FieldResponse field);
+        /// <param name="fields">Informacje o polach planszy</param>
+        void LoadGame(FieldResponse[][] fields);
+
+        /// <summary>
+        /// Metoda otwierająca wybrane pole.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma otwieranego pola</param>
+        /// <param name="y">Współrzędna pionowa otwieranego pola</param>
+        /// <param name="value">Wartość odkrytego pola</param>
+        void SetOpened(int x, int y, int value);
+
+        /// <summary>
+        /// Metoda zaznaczająca / odznaczająca pole planszy.
+        /// </summary>
+        /// <param name="marked"></param>
+        /// <param name="x">Współrzędna poziona zaznaczanego / odznaczanego pola</param>
+        /// <param name="y">Współrzędna pionowa zaznaczanego / odznaczanego pola</param>
+        void SetMarked(int x, int y, bool marked);
 
         /// <summary>
         /// Metoda informująca o sukcesie lub porażce rozgrywki.

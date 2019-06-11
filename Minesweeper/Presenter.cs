@@ -34,7 +34,7 @@ namespace Minesweeper
         /// Metoda obsługująca event rozpoczęcia nowej gry.
         /// </summary>
         /// <param name="mode">Tryb nowej gry</param>
-        private void HandleStartNewGame(GameMode mode)
+        private void HandleStartNewGame(GameModeEnum mode)
         {
 
         }

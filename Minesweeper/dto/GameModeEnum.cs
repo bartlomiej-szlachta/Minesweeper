@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Minesweeper.dto
 {
-    public enum GameMode
+    public enum GameModeEnum
     {
         EASY, MEDIUM, HARD
     }
