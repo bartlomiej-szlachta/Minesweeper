@@ -1,3 +1,3 @@
 # Minesweeper
 
-Aplikacja desktopowa umo¿liwiaj¹ca klasyczn¹ rozgrywkê w Sapera, znanego z systemów Windows.
+Aplikacja desktopowa umoÅ¼liwiajÄ…ca klasycznÄ… rozgrywkÄ™ w Sapera, znanego z systemÃ³w Windows.
