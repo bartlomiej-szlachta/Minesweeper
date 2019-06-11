@@ -191,5 +191,22 @@ namespace Minesweeper.model
                 }
             } while (zerosNow != zerosBefore);
         }
+
+        /// <summary>
+        /// Metoda zaznaczająca / odznaczająca wybrane pole.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma pola</param>
+        /// <param name="y">Współrzędna pionowa pola</param>
+        internal void MarkField(int x, int y)
+        {
+            if (fields[y][x].IsMarked)
+            {
+                fields[y][x].IsMarked = false;
+            }
+            if (!fields[y][x].IsMarked)
+            {
+                fields[y][x].IsMarked = true;
+            }
+        }
     }    
 }

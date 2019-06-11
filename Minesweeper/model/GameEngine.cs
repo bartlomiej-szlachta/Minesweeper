@@ -96,7 +96,7 @@ namespace Minesweeper.model
         /// <param name="y">Współrzędna pionowa pola</param>
         internal void MarkField(int x, int y)
         {
-            throw new NotImplementedException();
+            board.MarkField(x, y);
         }
 
         /// <summary>
