@@ -12,6 +12,7 @@ namespace Minesweeper.model
         private Field[][] fields;
 
         internal GameModeEnum Mode { get; set; }
+        internal bool IsStarted { get; set; }
         internal bool IsFinished { get; set; }
         internal bool IsResultPositive { get; set; }
         internal int Width { get; set; }
@@ -20,6 +21,10 @@ namespace Minesweeper.model
 
         internal Board(int width, int height, int numberOfBombs)
         {
+            IsStarted = false;
+            IsFinished = false;
+            Width = width;
+            Height = height;
             NumberOfBombs = numberOfBombs;
             fields = new Field[width][];
             for (int i = 0; i < width + 2; i++)
@@ -38,7 +43,7 @@ namespace Minesweeper.model
         /// </summary>
         /// <param name="x">Współrzędna pozioma wybranego pola</param>
         /// <param name="y">Współrzędna pionowa wybranego pola</param>
-        internal void RandomizeAndInitialize(int startX, int startY)
+        internal void Fill(int startX, int startY)
         {
             Random random = new Random();
             for (int i = 0; i < NumberOfBombs; i++)
@@ -90,6 +95,7 @@ namespace Minesweeper.model
                     }
                 }
             }
+            IsStarted = true;
         }
         
     }
