@@ -14,6 +14,8 @@ namespace Minesweeper.model
     {
         #region Private fields
 
+        private Board board;
+
         #endregion
 
         #region Properties
@@ -21,22 +23,22 @@ namespace Minesweeper.model
         /// <summary>
         /// Informacja o tym, czy gra została zakończona.
         /// </summary>
-        internal bool IsGameFinished { get { throw new NotImplementedException(); } }
+        internal bool IsGameFinished { get { return board.IsFinished; } }
 
         /// <summary>
         /// Informacja o tym, czy zakończona gra została wygrana.
         /// </summary>
-        internal bool IsResultPositive { get { throw new NotImplementedException(); } }
+        internal bool IsResultPositive { get { return board.IsResultPositive; } }
 
         /// <summary>
         /// Szerokość planszy.
         /// </summary>
-        internal int Width { get { throw new NotImplementedException(); } }
+        internal int Width { get { return board.Width; } }
 
         /// <summary>
         /// Wysokość planszy.
         /// </summary>
-        internal int Height { get { throw new NotImplementedException(); } }
+        internal int Height { get { return board.Height; } }
 
         /// <summary>
         /// Liczba bomb pozostałych do końca gry.
@@ -50,9 +52,32 @@ namespace Minesweeper.model
         /// Metoda rozpoczynająca nową grę.
         /// </summary>
         /// <param name="mode">Tryb nowej gry</param>
-        internal void StartNewGame(GameModeEnum mode)
+        /// <param name="x">Współrzędna pozioma startowego pola</param>
+        /// <param name="y">Współrzędna pionowa startowego pola</param>
+        internal void StartNewGame(GameModeEnum mode, int x, int y)
         {
-            throw new NotImplementedException();
+            switch (mode)
+            {
+                case GameModeEnum.EASY:
+                    {
+                        board = new Board(9, 9, 10);
+                    }
+                    break;
+                case GameModeEnum.MEDIUM:
+                    {
+                        board = new Board(16, 16, 40);
+                    }
+                    break;
+                case GameModeEnum.HARD:
+                    {
+                        board = new Board(30, 16, 99);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            board.Mode = mode;
+            board.RandomizeAndInitialize(x, y);
         }
 
         /// <summary>

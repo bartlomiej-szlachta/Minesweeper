@@ -15,7 +15,7 @@ namespace Minesweeper
         /// <summary>
         /// Event reprezentujący żądanie rozpoczęcia nowej gry.
         /// </summary>
-        event Action<GameModeEnum> RequestStartNewGame;
+        event Action<GameModeEnum, int, int> RequestStartNewGame;
 
         /// <summary>
         /// Event reprezentujący żądanie otwarcia pola.

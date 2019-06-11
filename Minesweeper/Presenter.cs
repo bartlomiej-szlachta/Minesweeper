@@ -34,11 +34,13 @@ namespace Minesweeper
         /// Metoda obsługująca event rozpoczęcia nowej gry.
         /// </summary>
         /// <param name="mode">Tryb nowej gry</param>
-        private void HandleStartNewGame(GameModeEnum mode)
+        /// <param name="x">Współrzędna pozioma startowego pola</param>
+        /// <param name="y">Współrzędna pionowa startowego pola</param>
+        private void HandleStartNewGame(GameModeEnum mode, int x, int y)
         {
             try
             {
-                engine.StartNewGame(mode);
+                engine.StartNewGame(mode, x, y);
                 view.Initialize(engine.Width, engine.Height);
             }
             catch (Exception ex)

@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dto\FieldResponse.cs" />
     <Compile Include="dto\GameModeEnum.cs" />
+    <Compile Include="model\Board.cs" />
+    <Compile Include="model\Field.cs" />
     <Compile Include="model\GameEngine.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="view\InfoControl.cs">
