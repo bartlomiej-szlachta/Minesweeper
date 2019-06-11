@@ -160,6 +160,65 @@ namespace Minesweeper.model
         }
 
         /// <summary>
+        /// Metoda zaznaczająca / odznaczająca wybrane pole.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma pola</param>
+        /// <param name="y">Współrzędna pionowa pola</param>
+        internal void MarkField(int x, int y)
+        {
+            if (fields[y][x].IsMarked)
+            {
+                fields[y][x].IsMarked = false;
+            }
+            if (!fields[y][x].IsMarked)
+            {
+                fields[y][x].IsMarked = true;
+            }
+        }
+
+        /// <summary>
+        /// Metoda uzyskująca wartość danego pola - sumę bomb na sąsiednich polach.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma pola</param>
+        /// <param name="y">Współrzędna pionowa pola</param>
+        /// <returns>Wartość pola</returns>
+        internal int GetValue(int x, int y)
+        {
+            return fields[y][x].Value;
+        }
+
+        /// <summary>
+        /// Metoda uzyskująca stan zaznaczenia danego pola.
+        /// </summary>
+        /// <param name="x">Współrzędna pozioma pola</param>
+        /// <param name="y">Współrzędna pionowa pola</param>
+        /// <returns>True w przypadku, gdy pole jest zaznaczone, false w przeciwnym przypadku</returns>
+        internal bool GetMarked(int x, int y)
+        {
+            return fields[y][x].IsMarked;
+        }
+
+        /// <summary>
+        /// Metoda zwracająca liczbę pozostałych bomb do zlokalizowania.
+        /// </summary>
+        /// <returns>Liczba pozostałych bomb do zlokalizowania</returns>
+        internal int GetBombsRemaining()
+        {
+            int numberOfBombsAlreadyLocalised = 0;
+            for (int y = 0; y < Height; y++)
+            {
+                for (int x = 0; x < Width; x++)
+                {
+                    if (fields[y][x].IsMarked)
+                    {
+                        numberOfBombsAlreadyLocalised++;
+                    }
+                }
+            }
+            return NumberOfBombs - numberOfBombsAlreadyLocalised;
+        }
+
+        /// <summary>
         /// Pomocnicza metoda odsłaniająca puste fragmenty planszy.
         /// </summary>
         private void OpenBlankAreas()
@@ -190,23 +249,6 @@ namespace Minesweeper.model
                     }
                 }
             } while (zerosNow != zerosBefore);
-        }
-
-        /// <summary>
-        /// Metoda zaznaczająca / odznaczająca wybrane pole.
-        /// </summary>
-        /// <param name="x">Współrzędna pozioma pola</param>
-        /// <param name="y">Współrzędna pionowa pola</param>
-        internal void MarkField(int x, int y)
-        {
-            if (fields[y][x].IsMarked)
-            {
-                fields[y][x].IsMarked = false;
-            }
-            if (!fields[y][x].IsMarked)
-            {
-                fields[y][x].IsMarked = true;
-            }
         }
     }    
 }

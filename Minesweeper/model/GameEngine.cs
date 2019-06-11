@@ -43,7 +43,7 @@ namespace Minesweeper.model
         /// <summary>
         /// Liczba bomb pozostałych do końca gry.
         /// </summary>
-        internal int BombsRemaining { get { throw new NotImplementedException(); } }
+        internal int BombsRemaining { get { return board.GetBombsRemaining(); } }
         #endregion
 
         #region Methods
@@ -107,7 +107,7 @@ namespace Minesweeper.model
         /// <returns>Wartość pola</returns>
         internal int GetValue(int x, int y)
         {
-            throw new NotImplementedException();
+            return board.GetValue(x, y);
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Minesweeper.model
         /// <returns>True w przypadku, gdy pole jest zaznaczone, false w przeciwnym przypadku</returns>
         internal bool GetMarked(int x, int y)
         {
-            throw new NotImplementedException();
+            return board.GetMarked(x, y);
         }
 
         #endregion
