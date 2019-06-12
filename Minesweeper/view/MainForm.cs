@@ -51,7 +51,7 @@ namespace Minesweeper.view
 
         public void SetGameError(string message)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK);
         }
 
 
