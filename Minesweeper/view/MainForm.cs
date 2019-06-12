@@ -53,22 +53,23 @@ namespace Minesweeper.view
         {
             throw new NotImplementedException();
         }
-        
+
+
         #endregion
 
-        private void easyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void beginnerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RequestStartNewGame?.Invoke("beginner");
         }
 
-        private void mediumToolStripMenuItem_Click(object sender, EventArgs e)
+        private void intermediateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RequestStartNewGame?.Invoke("intermediate");
         }
 
-        private void hardToolStripMenuItem_Click(object sender, EventArgs e)
+        private void expertToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RequestStartNewGame?.Invoke("expert");
         }
     }
 }
