@@ -16,10 +16,15 @@ namespace Minesweeper.view
     /// </summary>
     internal partial class MainForm : Form, IView
     {
+        #region Constructor
         public MainForm()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region IView members
 
         public event Action<GameModeEnum, int, int> RequestStartNewGame;
         public event Action<int, int> RequestOpenField;
@@ -51,6 +56,23 @@ namespace Minesweeper.view
         }
 
         public void SetOpened(int x, int y, int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        private void easyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void mediumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void hardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
