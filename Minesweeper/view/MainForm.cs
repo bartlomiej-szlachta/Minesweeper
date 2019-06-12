@@ -55,7 +55,11 @@ namespace Minesweeper.view
 
         public void SetGameError(string message)
         {
-            MessageBox.Show(message, "Error", MessageBoxButtons.OK);
+            DialogResult result = MessageBox.Show(message, "Error", MessageBoxButtons.OK);
+            if (result != DialogResult.None)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
