@@ -46,20 +46,20 @@
             // 
             this.Value.AutoSize = true;
             this.Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Value.Location = new System.Drawing.Point(100, 0);
+            this.Value.Location = new System.Drawing.Point(414, 0);
             this.Value.Name = "Value";
             this.Value.Size = new System.Drawing.Size(83, 31);
             this.Value.TabIndex = 1;
             this.Value.Text = "Value";
             // 
-            // NumberControl
+            // InfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Value);
             this.Controls.Add(this.Label);
-            this.Name = "NumberControl";
-            this.Size = new System.Drawing.Size(186, 31);
+            this.Name = "InfoControl";
+            this.Size = new System.Drawing.Size(500, 31);
             this.ResumeLayout(false);
             this.PerformLayout();
 

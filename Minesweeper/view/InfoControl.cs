@@ -16,5 +16,15 @@ namespace Minesweeper.view
         {
             InitializeComponent();
         }
+
+        internal void SetLabel(string label)
+        {
+            Label.Text = label;
+        }
+
+        internal void SetValue(int value)
+        {
+            Value.Text = value.ToString();
+        }
     }
 }

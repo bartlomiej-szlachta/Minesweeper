@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.boardPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,16 +39,14 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // boardPanel
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Location = new System.Drawing.Point(13, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(775, 391);
-            this.panel1.TabIndex = 0;
+            this.boardPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.boardPanel.Location = new System.Drawing.Point(13, 27);
+            this.boardPanel.Name = "boardPanel";
+            this.boardPanel.Size = new System.Drawing.Size(750, 400);
+            this.boardPanel.TabIndex = 0;
+            this.boardPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.boardPanel_MouseClick);
             // 
             // menuStrip1
             // 
@@ -56,7 +54,7 @@
             this.gameToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(775, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,19 +99,20 @@
             // 
             // infoControl1
             // 
-            this.infoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.infoControl1.Location = new System.Drawing.Point(12, 424);
+            this.infoControl1.Location = new System.Drawing.Point(13, 433);
             this.infoControl1.Name = "infoControl1";
-            this.infoControl1.Size = new System.Drawing.Size(186, 31);
+            this.infoControl1.Size = new System.Drawing.Size(750, 31);
             this.infoControl1.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(800, 461);
+            this.ClientSize = new System.Drawing.Size(775, 476);
             this.Controls.Add(this.infoControl1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.boardPanel);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -127,7 +126,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel boardPanel;
         private InfoControl infoControl1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
