@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{EA7C7358-45A8-41F3-9FB8-D2A1631F005F}"
 	ProjectSection(SolutionItems) = preProject
+		res\-1.png = res\-1.png
 		res\0.png = res\0.png
 		res\1.png = res\1.png
 		res\2.png = res\2.png
@@ -22,9 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{EA7C7358-45A
 		res\6.png = res\6.png
 		res\7.png = res\7.png
 		res\8.png = res\8.png
-		res\bomb.jpg = res\bomb.jpg
 		res\hidden.png = res\hidden.png
-		res\marked.jpg = res\marked.jpg
+		res\marked.png = res\marked.png
 	EndProjectSection
 EndProject
 Global
