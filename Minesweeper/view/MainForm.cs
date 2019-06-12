@@ -46,14 +46,17 @@ namespace Minesweeper.view
 
         public void SetGameResult(bool success)
         {
-            throw new NotImplementedException();
+            DialogResult result = MessageBox.Show(success ? "Zwycięstwo!" : "Porażka", "Koniec gry", MessageBoxButtons.OK);
+            if (result != DialogResult.None)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public void SetGameError(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK);
         }
-
 
         #endregion
 
