@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Minesweeper.dto;
 
 namespace Minesweeper.model
 {
@@ -12,51 +11,47 @@ namespace Minesweeper.model
     /// </summary>
     internal class Board
     {
-        #region Private fields
+        #region Properties
 
         /// <summary>
         /// Tabela pól planszy.
         /// </summary>
-        private readonly Field[][] fields;
-
-        #endregion
-
-        #region Properties
+        private Field[][] Fields { get; set; }
 
         /// <summary>
-        /// Tryb gry.
+        /// Poziom trudności.
         /// </summary>
-        internal GameModeEnum Mode { get; set; }
+        private IDifficultyMode Difficulty { get; set; }
 
         /// <summary>
         /// Informacja o tym, czy gra jest rozpoczęta (czy pozycje bomb są wylosowane).
         /// </summary>
-        internal bool IsStarted { get; set; }
+        private bool IsStarted { get; set; }
 
         /// <summary>
         /// Informacja o tym, czy gra jest już zakończona.
         /// </summary>
-        internal bool IsFinished { get; set; }
+        internal bool IsFinished { get; private set; }
 
         /// <summary>
         /// Informacja o tym, czy wynik gry jest pozytywny. Dotyczy tylko zakończonej gry.
         /// </summary>
-        internal bool IsResultPositive { get; set; }
+        internal bool IsResultPositive { get; private set; }
 
         /// <summary>
         /// Szerokość planszy.
         /// </summary>
-        internal int Width { get; set; }
+        internal int Width { get { return Difficulty.Width; } }
 
         /// <summary>
         /// Wysokość planszy.
         /// </summary>
-        internal int Height { get; set; }
+        internal int Height { get { return Difficulty.Height; } }
 
         /// <summary>
         /// Ilość bomb na planszy.
         /// </summary>
-        internal int NumberOfBombs { get; set; }
+        private int NumberOfBombs { get { return Difficulty.NumberOfBombs; } }
 
         #endregion
 
@@ -66,18 +61,16 @@ namespace Minesweeper.model
         /// <param name="width">Szerokość planszy</param>
         /// <param name="height">Wysokość planszy</param>
         /// <param name="numberOfBombs">Ilość bomb na planszy</param>
-        internal Board(int width, int height, int numberOfBombs)
+        internal Board(IDifficultyMode difficulty)
         {
+            Difficulty = difficulty;
             IsStarted = false;
             IsFinished = false;
-            Width = width;
-            Height = height;
-            NumberOfBombs = numberOfBombs;
-            fields = new Field[width][];
-            for (int i = 0; i < width + 2; i++)
+            Fields = new Field[Width][];
+            for (int i = 0; i < Width + 2; i++)
             {
-                fields[i] = new Field[height + 2];
-                foreach (Field field in fields[i])
+                Fields[i] = new Field[Height + 2];
+                foreach (Field field in Fields[i])
                 {
                     field.IsOpened = false;
                     field.IsMarked = false;
@@ -111,14 +104,14 @@ namespace Minesweeper.model
                         || ((x == startX + 1) && (y == startY - 1))
                         || ((x == startX + 1) && (y == startY))
                         || ((x == startX + 1) && (y == startY + 1))
-                        || (fields[y][x].IsABomb))
+                        || (Fields[y][x].IsABomb))
                     {
                         randomiseAgain = true;
                     }
                     else
                     {
-                        fields[y][x].IsABomb = true;
-                        fields[y][x].Value = -1;
+                        Fields[y][x].IsABomb = true;
+                        Fields[y][x].Value = -1;
                     }
                 } while (randomiseAgain);
             }
@@ -127,18 +120,18 @@ namespace Minesweeper.model
             {
                 for (int x = 1; x <= Width; x++)
                 {
-                    if (!fields[y][x].IsABomb)
+                    if (!Fields[y][x].IsABomb)
                     {
                         int counter = 0;
-                        if (fields[y - 1][x - 1].IsABomb) { counter++; }
-                        if (fields[y - 1][x].IsABomb) { counter++; }
-                        if (fields[y - 1][x + 1].IsABomb) { counter++; }
-                        if (fields[y][x - 1].IsABomb) { counter++; }
-                        if (fields[y][x + 1].IsABomb) { counter++; }
-                        if (fields[y + 1][x - 1].IsABomb) { counter++; }
-                        if (fields[y + 1][x].IsABomb) { counter++; }
-                        if (fields[y + 1][x + 1].IsABomb) { counter++; }
-                        fields[y][x].Value = counter;
+                        if (Fields[y - 1][x - 1].IsABomb) { counter++; }
+                        if (Fields[y - 1][x].IsABomb) { counter++; }
+                        if (Fields[y - 1][x + 1].IsABomb) { counter++; }
+                        if (Fields[y][x - 1].IsABomb) { counter++; }
+                        if (Fields[y][x + 1].IsABomb) { counter++; }
+                        if (Fields[y + 1][x - 1].IsABomb) { counter++; }
+                        if (Fields[y + 1][x].IsABomb) { counter++; }
+                        if (Fields[y + 1][x + 1].IsABomb) { counter++; }
+                        Fields[y][x].Value = counter;
                     }
                 }
             }
@@ -158,21 +151,21 @@ namespace Minesweeper.model
                 Fill(x, y);
             }
 
-            if (fields[y][x].IsOpened)
+            if (Fields[y][x].IsOpened)
             {
                 throw new Exception("The field is already opened.");
             }
 
-            fields[y][x].IsOpened = true;
+            Fields[y][x].IsOpened = true;
 
-            if (fields[y][x].IsABomb)
+            if (Fields[y][x].IsABomb)
             {
                 IsFinished = true;
                 IsResultPositive = false;
             }
             else
             {
-                if (fields[y][x].Value == 0)
+                if (Fields[y][x].Value == 0)
                 {
                     OpenBlankAreas();
                 }
@@ -182,7 +175,7 @@ namespace Minesweeper.model
                 {
                     for (int xi = 1; xi <= Width; xi++)
                     {
-                        if (!fields[yi][xi].IsOpened && !fields[yi][xi].IsABomb)
+                        if (!Fields[yi][xi].IsOpened && !Fields[yi][xi].IsABomb)
                         {
                             victory = false;
                             break;
@@ -204,13 +197,13 @@ namespace Minesweeper.model
         /// <param name="y">Współrzędna pionowa pola</param>
         internal void MarkField(int x, int y)
         {
-            if (fields[y][x].IsMarked)
+            if (Fields[y][x].IsMarked)
             {
-                fields[y][x].IsMarked = false;
+                Fields[y][x].IsMarked = false;
             }
-            if (!fields[y][x].IsMarked)
+            if (!Fields[y][x].IsMarked)
             {
-                fields[y][x].IsMarked = true;
+                Fields[y][x].IsMarked = true;
             }
         }
 
@@ -222,7 +215,7 @@ namespace Minesweeper.model
         /// <returns>Wartość pola</returns>
         internal int GetValue(int x, int y)
         {
-            return fields[y][x].Value;
+            return Fields[y][x].Value;
         }
 
         /// <summary>
@@ -233,7 +226,7 @@ namespace Minesweeper.model
         /// <returns>True w przypadku, gdy pole jest zaznaczone, false w przeciwnym przypadku</returns>
         internal bool GetMarked(int x, int y)
         {
-            return fields[y][x].IsMarked;
+            return Fields[y][x].IsMarked;
         }
 
         /// <summary>
@@ -247,7 +240,7 @@ namespace Minesweeper.model
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    if (fields[y][x].IsMarked)
+                    if (Fields[y][x].IsMarked)
                     {
                         numberOfBombsAlreadyLocalised++;
                     }
@@ -271,16 +264,16 @@ namespace Minesweeper.model
                 {
                     for (int x = 1; x <= Width; x++)
                     {
-                        if (fields[y][x].IsOpened && fields[y][x].Value == 0)
+                        if (Fields[y][x].IsOpened && Fields[y][x].Value == 0)
                         {
-                            fields[y - 1][x - 1].IsOpened = true;
-                            fields[y - 1][x].IsOpened = true;
-                            fields[y - 1][x + 1].IsOpened = true;
-                            fields[y][x - 1].IsOpened = true;
-                            fields[y][x + 1].IsOpened = true;
-                            fields[y + 1][x - 1].IsOpened = true;
-                            fields[y + 1][x].IsOpened = true;
-                            fields[y + 1][x + 1].IsOpened = true;
+                            Fields[y - 1][x - 1].IsOpened = true;
+                            Fields[y - 1][x].IsOpened = true;
+                            Fields[y - 1][x + 1].IsOpened = true;
+                            Fields[y][x - 1].IsOpened = true;
+                            Fields[y][x + 1].IsOpened = true;
+                            Fields[y + 1][x - 1].IsOpened = true;
+                            Fields[y + 1][x].IsOpened = true;
+                            Fields[y + 1][x + 1].IsOpened = true;
 
                             zerosNow++;
                         }

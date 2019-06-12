@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dto\GameModeEnum.cs" />
+    <Compile Include="model\difficultymodes\BeginnerDifficultyMode.cs" />
+    <Compile Include="model\difficultymodes\ExpertDifficultyMode.cs" />
+    <Compile Include="model\IDifficultyMode.cs" />
+    <Compile Include="model\difficultymodes\IntermediateDifficultyMode.cs" />
     <Compile Include="model\Board.cs" />
     <Compile Include="model\Field.cs" />
     <Compile Include="model\GameEngine.cs" />

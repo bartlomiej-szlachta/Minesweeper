@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Minesweeper.dto;
+using Minesweeper.model.difficultymodes;
 
 namespace Minesweeper.model
 {
@@ -51,32 +51,27 @@ namespace Minesweeper.model
         /// <summary>
         /// Metoda rozpoczynająca nową grę.
         /// </summary>
-        /// <param name="mode">Tryb nowej gry</param>
-        /// <param name="x">Współrzędna pozioma startowego pola</param>
-        /// <param name="y">Współrzędna pionowa startowego pola</param>
-        internal void StartNewGame(GameModeEnum mode, int x, int y)
+        /// <param name="difficultyName">Nazwa poziomu trudności nowej gry</param>
+        internal void StartNewGame(string difficultyName)
         {
-            switch (mode)
+            switch (difficultyName)
             {
-                case GameModeEnum.EASY:
+                case "beginner":
                     {
-                        board = new Board(9, 9, 10);
+                        board = new Board(new BeginnerDifficultyMode());
                     }
                     break;
-                case GameModeEnum.MEDIUM:
+                case "intermediate":
                     {
-                        board = new Board(16, 16, 40);
+                        board = new Board(new IntermediateDifficultyMode());
                     }
                     break;
-                case GameModeEnum.HARD:
+                case "expert":
                     {
-                        board = new Board(30, 16, 99);
+                        board = new Board(new ExpertDifficultyMode());
                     }
-                    break;
-                default:
                     break;
             }
-            board.Mode = mode;
         }
 
         /// <summary>

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Minesweeper.model;
-using Minesweeper.dto;
 
 namespace Minesweeper
 {
@@ -33,15 +32,13 @@ namespace Minesweeper
         /// <summary>
         /// Metoda obsługująca event rozpoczęcia nowej gry.
         /// </summary>
-        /// <param name="mode">Tryb nowej gry</param>
-        /// <param name="x">Współrzędna pozioma startowego pola</param>
-        /// <param name="y">Współrzędna pionowa startowego pola</param>
-        private void HandleStartNewGame(GameModeEnum mode, int x, int y)
+        /// <param name="difficultyName">Nazwa poziomu trudności nowej gry</param>
+        private void HandleStartNewGame(string difficultyName)
         {
             try
             {
-                engine.StartNewGame(mode, x, y);
-                view.Initialize(engine.Width, engine.Height);
+                engine.StartNewGame(difficultyName);
+                view.Initialize(engine.Width, engine.Height, engine.BombsRemaining);
             }
             catch (Exception ex)
             {
@@ -66,16 +63,14 @@ namespace Minesweeper
                         for (int j = 0; j < engine.Width; j++)
                         {
                             view.SetOpened(j, i, engine.GetValue(j, i));
-                            view.SetMarked(j, i, engine.GetMarked(j, i));
+                            view.SetMarked(j, i, engine.GetMarked(j, i), engine.BombsRemaining);
                         }
                     }
-                    view.SetBombsRemaining(0);
                     view.SetGameResult(engine.IsResultPositive);
                 }
                 else
                 {
                     view.SetOpened(x, y, engine.GetValue(x, y));
-                    view.SetBombsRemaining(engine.BombsRemaining);
                 }
             }
             catch (Exception ex)
@@ -94,7 +89,7 @@ namespace Minesweeper
             try
             {
                 engine.MarkField(x, y);
-                view.SetMarked(x, y, engine.GetMarked(x, y));
+                view.SetMarked(x, y, engine.GetMarked(x, y), engine.BombsRemaining);
             }
             catch(Exception ex)
             {

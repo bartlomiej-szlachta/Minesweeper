@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Minesweeper.dto;
 
 namespace Minesweeper.view
 {
@@ -26,31 +25,11 @@ namespace Minesweeper.view
 
         #region IView members
 
-        public event Action<GameModeEnum, int, int> RequestStartNewGame;
+        public event Action<string> RequestStartNewGame;
         public event Action<int, int> RequestOpenField;
         public event Action<int, int> RequestMarkOrUnmarkField;
 
-        public void Initialize(int width, int height)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetBombsRemaining(int number)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetGameError(string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetGameResult(bool success)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetMarked(int x, int y, bool marked)
+        public void Initialize(int width, int height, int numberOfBombs)
         {
             throw new NotImplementedException();
         }
@@ -60,6 +39,21 @@ namespace Minesweeper.view
             throw new NotImplementedException();
         }
 
+        public void SetMarked(int x, int y, bool marked, int bombsRemaining)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetGameResult(bool success)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetGameError(string message)
+        {
+            throw new NotImplementedException();
+        }
+        
         #endregion
 
         private void easyToolStripMenuItem_Click(object sender, EventArgs e)

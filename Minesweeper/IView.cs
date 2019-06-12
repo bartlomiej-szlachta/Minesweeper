@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Minesweeper.dto;
 
 namespace Minesweeper
 {
@@ -13,17 +12,17 @@ namespace Minesweeper
     internal interface IView
     {
         /// <summary>
-        /// Event reprezentujący żądanie rozpoczęcia nowej gry.
+        /// Event reprezentujący żądanie rozpoczęcia nowej gry o danym poziomie trudności.
         /// </summary>
-        event Action<GameModeEnum, int, int> RequestStartNewGame;
+        event Action<string> RequestStartNewGame;
 
         /// <summary>
-        /// Event reprezentujący żądanie otwarcia pola.
+        /// Event reprezentujący żądanie otwarcia danego pola.
         /// </summary>
         event Action<int, int> RequestOpenField;
 
         /// <summary>
-        /// Event reprezentujący żądanie zaznaczenia / odznaczenia pola.
+        /// Event reprezentujący żądanie zaznaczenia / odznaczenia danego pola.
         /// </summary>
         event Action<int, int> RequestMarkOrUnmarkField;
 
@@ -32,7 +31,8 @@ namespace Minesweeper
         /// </summary>
         /// <param name="width">Szerokość planszy</param>
         /// <param name="height">Wysokość planszy</param>
-        void Initialize(int width, int height);
+        /// <param name="numberOfBombs">Ilość bomb na planszy</param>
+        void Initialize(int width, int height, int numberOfBombs);
 
         /// <summary>
         /// Metoda otwierająca wybrane pole.
@@ -43,18 +43,13 @@ namespace Minesweeper
         void SetOpened(int x, int y, int value);
 
         /// <summary>
-        /// Metoda aktualizująca licznik pozostałych bomb do znalezienia.
-        /// </summary>
-        /// <param name="number">Liczba bomb</param>
-        void SetBombsRemaining(int number);
-
-        /// <summary>
         /// Metoda zaznaczająca / odznaczająca pole planszy.
         /// </summary>
         /// <param name="marked"></param>
         /// <param name="x">Współrzędna poziona zaznaczanego / odznaczanego pola</param>
         /// <param name="y">Współrzędna pionowa zaznaczanego / odznaczanego pola</param>
-        void SetMarked(int x, int y, bool marked);
+        /// <param name="bombsRemaining">Liczba pozostałych bomb do zlokalizowania</param>
+        void SetMarked(int x, int y, bool marked, int bombsRemaining);
 
         /// <summary>
         /// Metoda informująca o sukcesie lub porażce rozgrywki.
@@ -63,7 +58,7 @@ namespace Minesweeper
         void SetGameResult(bool success);
 
         /// <summary>
-        /// Metoda informująca o błędzie.
+        /// Metoda informująca o błędzie działania aplikacji.
         /// </summary>
         /// <param name="message">Treść komunikatu</param>
         void SetGameError(string message);
