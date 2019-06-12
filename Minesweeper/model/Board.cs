@@ -200,16 +200,9 @@ namespace Minesweeper.model
         /// </summary>
         /// <param name="x">Współrzędna pozioma pola</param>
         /// <param name="y">Współrzędna pionowa pola</param>
-        internal void MarkField(int x, int y)
+        internal void MarkOrUnmarkField(int x, int y)
         {
-            if (Fields[y][x].IsMarked)
-            {
-                Fields[y][x].IsMarked = false;
-            }
-            if (!Fields[y][x].IsMarked)
-            {
-                Fields[y][x].IsMarked = true;
-            }
+            Fields[y][x].IsMarked = !Fields[y][x].IsMarked;
         }
 
         /// <summary>

@@ -89,9 +89,9 @@ namespace Minesweeper.model
         /// </summary>
         /// <param name="x">Współrzędna pozioma pola</param>
         /// <param name="y">Współrzędna pionowa pola</param>
-        internal void MarkField(int x, int y)
+        internal void MarkOrUnmarkField(int x, int y)
         {
-            board.MarkField(x, y);
+            board.MarkOrUnmarkField(x, y);
         }
 
         /// <summary>
