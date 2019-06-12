@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.infoControl2 = new Minesweeper.view.InfoControl();
-            this.infoControl1 = new Minesweeper.view.InfoControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.easyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mediumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoControl2 = new Minesweeper.view.InfoControl();
+            this.infoControl1 = new Minesweeper.view.InfoControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,22 +50,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(775, 391);
             this.panel1.TabIndex = 0;
-            // 
-            // infoControl2
-            // 
-            this.infoControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoControl2.Location = new System.Drawing.Point(602, 424);
-            this.infoControl2.Name = "infoControl2";
-            this.infoControl2.Size = new System.Drawing.Size(186, 31);
-            this.infoControl2.TabIndex = 6;
-            // 
-            // infoControl1
-            // 
-            this.infoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.infoControl1.Location = new System.Drawing.Point(12, 424);
-            this.infoControl1.Name = "infoControl1";
-            this.infoControl1.Size = new System.Drawing.Size(186, 31);
-            this.infoControl1.TabIndex = 5;
             // 
             // menuStrip1
             // 
@@ -92,29 +76,45 @@
             this.mediumToolStripMenuItem,
             this.hardToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // easyToolStripMenuItem
             // 
             this.easyToolStripMenuItem.Name = "easyToolStripMenuItem";
-            this.easyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.easyToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.easyToolStripMenuItem.Text = "Easy";
             this.easyToolStripMenuItem.Click += new System.EventHandler(this.easyToolStripMenuItem_Click);
             // 
             // mediumToolStripMenuItem
             // 
             this.mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
-            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mediumToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.mediumToolStripMenuItem.Text = "Medium";
             this.mediumToolStripMenuItem.Click += new System.EventHandler(this.mediumToolStripMenuItem_Click);
             // 
             // hardToolStripMenuItem
             // 
             this.hardToolStripMenuItem.Name = "hardToolStripMenuItem";
-            this.hardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hardToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.hardToolStripMenuItem.Text = "Hard";
             this.hardToolStripMenuItem.Click += new System.EventHandler(this.hardToolStripMenuItem_Click);
+            // 
+            // infoControl2
+            // 
+            this.infoControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoControl2.Location = new System.Drawing.Point(602, 424);
+            this.infoControl2.Name = "infoControl2";
+            this.infoControl2.Size = new System.Drawing.Size(186, 31);
+            this.infoControl2.TabIndex = 6;
+            // 
+            // infoControl1
+            // 
+            this.infoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.infoControl1.Location = new System.Drawing.Point(12, 424);
+            this.infoControl1.Name = "infoControl1";
+            this.infoControl1.Size = new System.Drawing.Size(186, 31);
+            this.infoControl1.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -127,7 +127,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Minesweeoer";
+            this.Text = "Minesweeper";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
