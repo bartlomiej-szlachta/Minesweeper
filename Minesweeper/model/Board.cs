@@ -66,14 +66,19 @@ namespace Minesweeper.model
             Difficulty = difficulty;
             IsStarted = false;
             IsFinished = false;
-            Fields = new Field[Width][];
-            for (int i = 0; i < Width + 2; i++)
+            Fields = new Field[Height + 2][];
+            for (int y = 0; y < Height + 2; y++)
             {
-                Fields[i] = new Field[Height + 2];
-                foreach (Field field in Fields[i])
+                Fields[y] = new Field[Width + 2];
+                for (int x = 0; x < Width + 2; x++)
                 {
-                    field.IsOpened = false;
-                    field.IsMarked = false;
+                    Fields[y][x] = new Field
+                    {
+                        Value = 0,
+                        IsABomb = false,
+                        IsMarked = false,
+                        IsOpened = false
+                    };
                 }
             }
         }
