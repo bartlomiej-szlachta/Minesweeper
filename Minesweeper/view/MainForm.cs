@@ -173,7 +173,7 @@ namespace Minesweeper.view
 
         public void SetGameResult(bool success)
         {
-            DialogResult result = MessageBox.Show(success ? "Zwycięstwo!" : "Porażka", "Koniec gry", MessageBoxButtons.OK);
+            DialogResult result = MessageBox.Show(success ? "Victory!" : "Defeat", "Game finished", MessageBoxButtons.OK);
             if (result != DialogResult.None)
             {
                 RequestStartNewGame?.Invoke(currentDifficultyMode);
