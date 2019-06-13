@@ -11,22 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{EA7C7358-45A8-41F3-9FB8-D2A1631F005F}"
-	ProjectSection(SolutionItems) = preProject
-		res\-1.png = res\-1.png
-		res\0.png = res\0.png
-		res\1.png = res\1.png
-		res\2.png = res\2.png
-		res\3.png = res\3.png
-		res\4.png = res\4.png
-		res\5.png = res\5.png
-		res\6.png = res\6.png
-		res\7.png = res\7.png
-		res\8.png = res\8.png
-		res\hidden.png = res\hidden.png
-		res\marked.png = res\marked.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,9 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{EA7C7358-45A8-41F3-9FB8-D2A1631F005F} = {0296F7B2-E93A-4E45-8331-14B3204B5E7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C53BBD3D-B341-42A2-9909-5B6FD1E554A4}

@@ -75,11 +75,11 @@ namespace Minesweeper.view
             numberFieldImages = new Image[9];
             for (int i = 0; i < 9; i++)
             {
-                numberFieldImages[i] = new Bitmap(i + ".png");
+                numberFieldImages[i] = new Bitmap("res/" + i + ".png");
             }
-            bombFieldImage = new Bitmap("-1.png");
-            hiddenFieldImage = new Bitmap("hidden.png");
-            markedFieldImage = new Bitmap("marked.png");
+            bombFieldImage = new Bitmap("res/-1.png");
+            hiddenFieldImage = new Bitmap("res/hidden.png");
+            markedFieldImage = new Bitmap("res/marked.png");
             canvas = boardPanel.CreateGraphics();
             infoControl1.SetLabel("Bombs remaining:");
             infoControl1.SetValue(0);
