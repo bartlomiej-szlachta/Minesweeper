@@ -115,37 +115,40 @@ namespace Minesweeper.model
                 IsStarted = true;
             }
 
-            Fields[y][x].IsOpened = true;
-            FieldOpened?.Invoke(x, y, Fields[y][x].Value);
-
-            if (Fields[y][x].IsABomb)
+            if (!Fields[y][x].IsMarked)
             {
-                IsFinished = true;
-                GameFinished?.Invoke(false);
-            }
-            else
-            {
-                if (Fields[y][x].Value == 0)
-                {
-                    OpenBlankAreas();
-                }
+                Fields[y][x].IsOpened = true;
+                FieldOpened?.Invoke(x, y, Fields[y][x].Value);
 
-                bool victory = true;
-                for (int yi = 1; yi <= Height; yi++)
-                {
-                    for (int xi = 1; xi <= Width; xi++)
-                    {
-                        if (!Fields[yi][xi].IsOpened && !Fields[yi][xi].IsABomb)
-                        {
-                            victory = false;
-                            break;
-                        }
-                    }
-                }
-                if (victory)
+                if (Fields[y][x].IsABomb)
                 {
                     IsFinished = true;
-                    GameFinished?.Invoke(true);
+                    GameFinished?.Invoke(false);
+                }
+                else
+                {
+                    if (Fields[y][x].Value == 0)
+                    {
+                        OpenBlankAreas();
+                    }
+
+                    bool victory = true;
+                    for (int yi = 1; yi <= Height; yi++)
+                    {
+                        for (int xi = 1; xi <= Width; xi++)
+                        {
+                            if (!Fields[yi][xi].IsOpened && !Fields[yi][xi].IsABomb)
+                            {
+                                victory = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (victory)
+                    {
+                        IsFinished = true;
+                        GameFinished?.Invoke(true);
+                    }
                 }
             }
         }
@@ -157,8 +160,11 @@ namespace Minesweeper.model
         /// <param name="y">Współrzędna pionowa zaznaczanego / odznaczanego pola</param>
         public void MarkOrUnmarkField(int x, int y)
         {
-            Fields[y][x].IsMarked = !Fields[y][x].IsMarked;
-            FieldMarkedOrUnmarked?.Invoke(x, y, Fields[y][x].IsMarked, GetBombsRemaining());
+            if (!Fields[y][x].IsOpened)
+            {
+                Fields[y][x].IsMarked = !Fields[y][x].IsMarked;
+                FieldMarkedOrUnmarked?.Invoke(x, y, Fields[y][x].IsMarked, GetBombsRemaining());
+            }
         }
 
         #endregion
